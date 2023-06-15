@@ -19,5 +19,5 @@ jobs:
       with:
         node-version: 19.x
         cache: 'yarn'
-    - run: yarn ci
+    - run: yarn
     - run: yarn test
