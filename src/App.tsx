@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useQuery } from '@tanstack/react-query'
+import { useWeatherApi } from './context/WeatherContext';
+import Main from './components/Main';
+import Sapporo from './components/Sapporo';
+
 
 function App() {
+  const { weatherApi } = useWeatherApi();
+  const { isLoading, error, data: weathers } = useQuery(['weathers'], () => weatherApi.fetchData(), {staleTime: 6000 * 10});
+  
+  if(isLoading) return <p>Loading....</p>;
+  if(error) return <p>error....</p>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Main {...weathers} />
+    </>
   );
 }
 
