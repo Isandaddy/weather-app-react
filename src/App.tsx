@@ -2,7 +2,6 @@ import './App.css';
 import { useQuery } from '@tanstack/react-query'
 import { useWeatherApi } from './context/WeatherContext';
 import Main from './components/Main';
-import Sapporo from './components/Sapporo';
 
 
 function App() {
