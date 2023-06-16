@@ -34,7 +34,7 @@ export class Rain implements Weather {
 
     for (let i = 0; i < this.drops.length/3; i++) {
       const drop = this.drops[i];
-
+      if(!ctx) return;
       ctx.beginPath();
       ctx.moveTo(drop.x, drop.y);
       ctx.lineTo(drop.x, drop.y + drop.length);

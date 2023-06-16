@@ -13,7 +13,7 @@ export class Clear implements Weather {
     const sunColor = '#FFFF00'; // color of the sun
     const sunRadius = 50; // radius of each cloud puff
     // const cloudSpacing = 30; // spacing between cloud puffs
-    
+    if(!ctx) return;
     ctx.beginPath();
     ctx.arc(x, y, sunRadius, 0, 2 * Math.PI);
     ctx.fillStyle = sunColor;

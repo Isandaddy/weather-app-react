@@ -46,6 +46,7 @@ export class Snow implements Weather{
     ctx.fillStyle = "#5555";
     for (let i = 0; i < this.snowflakes.length; i++) {
       const snowflake = this.snowflakes[i];
+      if(!ctx) return;
       ctx.beginPath();
       ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
       ctx.fill();
