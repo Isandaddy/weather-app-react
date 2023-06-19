@@ -15,6 +15,7 @@ describe('App', () => {
         <App/>
       </QueryClientProvider>
     </WeatherProvider>);
+    screen.debug();
 
     expect(screen.getByText('Loading....')).toBeInTheDocument();
     await waitFor(()=>{
