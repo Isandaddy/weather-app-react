@@ -12,7 +12,7 @@ export class Cloud implements Weather {
   private draw(ctx: CanvasRenderingContext2D, x: number, y: number) {
     const cloudColor = "#5555";
     const cloudRadius = 50;
-
+    if(!ctx) return;
     ctx.beginPath();
     ctx.arc(x, y, cloudRadius, 0, 2 * Math.PI);
     ctx.arc(x + cloudRadius, y, cloudRadius, 0, 2 * Math.PI);
